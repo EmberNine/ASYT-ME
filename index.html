@@ -1,0 +1,172 @@
+<html>
+<head>
+	<title>Search & Rescue App</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link href='css/custom.css' rel='stylesheet' type='text/css'>
+
+]
+
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Logo Nav - Start Bootstrap Template</title>
+    <link href="css/logo-nav.css" rel="stylesheet">
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    
+
+<head>
+
+<style>
+	body {
+    background-image: url('bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+	background-size:cover;
+	background-position:center;}
+</style>
+
+
+
+
+</head>
+<body >
+
+
+	
+	<center><img src="pngLogo4.png" width="40%" alt=""/center>
+	
+
+
+	<div id="mySidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<h1 id="mySidenavText" class = "sidenavText">Assitance Requests Heat Map</h1>
+		<p id="mySidenavText1" class = "sidenavText">Where the most people need help</p>
+		<div id="sideMap" class="container"></div>				
+	</div>
+
+	<!--<div class="container">
+		<p class="lead text-center">Search & Rescue Application</p>
+	</div> -->
+
+	<!--Map container -->
+	<div id="main">
+		<span id="sideBarButton" onclick="openNav()"> Heat Map View</span>
+		
+		<div class ="col-med-4 text-center" id = "controls">
+				<button id="b-one" type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#helpSubmission" ID="HELPME">I Need Help</button>
+			
+			<!--Modal Form for a help request -->
+			<div class="modal fade" id="helpSubmission" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">&times;</span>
+								<span class="sr-only">Close</span>
+							</button>
+							<h4 class="modal-title" id="myModalLabel">
+								Generate a help request
+							</h4>
+						</div>
+
+					<!-- Modal Body -->
+					<div class="modal-body">
+						<form role="form">
+							<div class="form-group">
+								<label for="exampleInputEmail1">Name:</label>
+								<input type="text" class="form-control" id="help_Name" placeholder=" "/>
+							</div>
+						<div class="form-group">
+								<label for="exampleInputEmail2">Emergency:</label>
+								<input type="text" class="form-control" id="help_Emergency" placeholder=" "/>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputPassword2">Contact Info:</label>
+								<input type="text" class="form-control" id="help_contact" placeholder=" "/>
+							</div>
+							<button type="button" class="btn btn-default" id="submit_Help">
+								Submit
+							</button>
+						</form>
+					</div>
+
+					<!-- Modal Footer -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							Close
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<button id='btwo' type="button" class="btn btn-danger btn-lg"  data-toggle="modal" data-target="#dangerSubmission"  ID="report">
+			Report Disaster
+		</button>
+		<!--Modal Form for a danger post -->
+		<div class="modal fade" id="dangerSubmission" tabindex="-1" role="dialog" 
+		aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span>
+							<span class="sr-only">Close</span>
+						</button>
+					<h4 class="modal-title" id="myModalLabel">
+						Generate a Danger report
+					</h4>
+				</div>
+
+				<!-- Modal Body -->
+				<div class="modal-body">
+
+					<form role="form">
+						<div class="form-group">
+							<label for="exampleInputEmail1">Name</label>
+							<input type="text" class="form-control"
+							id="danger_Name" placeholder=" "/>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Type of danger</label>
+							<input type="text" class="form-control"
+							id="danger_Type" placeholder=" "/>
+						</div>
+						<button type="button" class="btn btn-default" id="submit_Danger">Submit</button>
+					</form>
+				</div>
+
+				<!-- Modal Footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						Close
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<body>
+    <!-- Map container -->
+    <div id="map_canvas"></div>
+</body>
+<div class="container" id="map"></div>
+
+	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoVGUyBolNR-qk0KEUK-hOxVorzqj7g0Y"></script>-->
+
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrVx1qsw2kU1dk2Y5dMiKq8F-Oj6Tcx0Y&callback=initMap&libraries=visualization" type="text/javascript"></script>
+	
+	<script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/sidebar.js"></script>
+
+
+</body>
+</html>
