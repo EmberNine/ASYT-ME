@@ -18,11 +18,22 @@ background {
     font-size: 16;
 }
 
-#map {
-    min-height: 500px;
-    width: 70%;
-    height:70%
+#content {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
+ #map {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#map {
+    position: relative;
+}
+
 
 #sideMap {
     min-height: 500px;
